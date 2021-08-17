@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {CognitoUserAttribute} from 'amazon-cognito-identity-js';
-import {UserPool} from '../UserPool';
+import UserPool from '../UserPool';
 
 const Signup = () => {
     const [email, setEmail] = useState('');

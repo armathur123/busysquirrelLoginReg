@@ -1,14 +1,14 @@
-import './App.css';
+import { Account } from './Components/Accounts';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
 
 
 function App() {
   return (
-    <div className="App">
+    <Account>
       <Signup></Signup>
       <Login></Login>
-    </div>
+    </Account>
   );
 }
 
