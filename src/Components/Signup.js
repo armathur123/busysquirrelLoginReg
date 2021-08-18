@@ -21,7 +21,7 @@ const Signup = () => {
           console.error(err);
         }
         console.log(data)
-        setSignupStatus('Successful sign up!')
+        setSignupStatus('Successful sign up!');
       })
     }
   
@@ -35,7 +35,6 @@ const Signup = () => {
               <button type='submit'>Signup</button>
           </form>
           <h3>{signupStatus}</h3>
-
         </div>
     );
 }
