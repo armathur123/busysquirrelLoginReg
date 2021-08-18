@@ -19,7 +19,7 @@ const Status = () => {
                     You are logged in.
                     <button onClick={logout}>Logout</button>
                 </div>
-            ) : 'Please login Below.'}
+            ) : 'Please login Above.'}
         </div>
     );
 }

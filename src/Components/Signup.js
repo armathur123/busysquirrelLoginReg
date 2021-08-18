@@ -8,6 +8,7 @@ const Signup = () => {
     const [address, setAddress] = useState('');
     const [gender, setGender] = useState('');
     const attributeList = [];
+    const [signupStatus, setSignupStatus] = useState('');
   
     const onSubmit = e => {
       e.preventDefault();
@@ -20,18 +21,21 @@ const Signup = () => {
           console.error(err);
         }
         console.log(data)
+        setSignupStatus('Successful sign up!')
       })
     }
   
     return (
-        <div className="App">
-        <form onSubmit={onSubmit}>
-            <input value={email} onChange = {e => setEmail(e.target.value)} placeholder = 'email' />
-            <input value={password} onChange = {e => setPassword(e.target.value)} placeholder = 'password'/>
-            <input value={address} onChange = {e => setAddress(e.target.value)} placeholder = 'address'/>
-            <input value={gender} onChange = {e => setGender(e.target.value)} placeholder = 'gender'/>
-            <button type='submit'>Signup</button>
-        </form>
+        <div>
+          <form onSubmit={onSubmit}  className="fields">
+              <input value={email} onChange = {e => setEmail(e.target.value)} placeholder = 'email' />
+              <input value={password} onChange = {e => setPassword(e.target.value)} placeholder = 'password'/>
+              <input value={address} onChange = {e => setAddress(e.target.value)} placeholder = 'address'/>
+              <input value={gender} onChange = {e => setGender(e.target.value)} placeholder = 'gender'/>
+              <button type='submit'>Signup</button>
+          </form>
+          <h3>{signupStatus}</h3>
+
         </div>
     );
 }

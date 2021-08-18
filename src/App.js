@@ -1,17 +1,40 @@
-import { Account } from './Components/Accounts';
-import Signup from './Components/Signup';
-import Login from './Components/Login';
-import Status from './Components/Status';
+import Home from './Components/Home';
+import './index.css';
 
 
 function App() {
   return (
-    <Account>
-      <Status></Status>
-      <Signup></Signup>
-      <Login></Login>
-    </Account>
+    <Home>
+    </Home>
   );
 }
 
 export default App;
+
+
+{/*function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <div className="content">
+          <Switch>
+            <Route exact path = "/">
+              <Home></Home>
+            </Route>
+            <Route path = "/create">
+              <Create></Create>
+            </Route>
+            <Route path = "/blogs/:id">
+              <BlogDetails></BlogDetails>
+            </Route>
+            <Route>
+              <NotFound path="*"></NotFound>
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
+  );
+}
+*/}
