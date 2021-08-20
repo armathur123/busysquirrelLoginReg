@@ -1,21 +1,26 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import { AccountContext } from './Accounts';
 
+
 const Login = () => {
-    const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [status, setStatus] = useState(false);
+    const {authenticate, getSession, logout} = useContext(AccountContext);
 
-    const {authenticate} = useContext(AccountContext);
 
     const onSubmit = e => {
         e.preventDefault();
         authenticate(email, password)
             .then(data => {
                 console.log('Logged in!', data);
+                getSession()
+                .then(session => {
+                    console.log('Session:',session);
+                    setStatus(true);
+                })
             })
             .catch(err => {
-                setMessage('Failed to login!');
                 console.error('Failed to login!', err);
             })
     };
@@ -27,7 +32,14 @@ const Login = () => {
                 <input value = {password} onChange = {e => setPassword(e.target.value)} placeholder = 'password' />
                 <button type = "submit">Login</button>
             </form>
-            <h2>{message}</h2>
+            <div>
+                {status ? (
+                    <div>
+                        You are logged in.
+                        <button onClick={logout}>Logout</button>
+                    </div>
+                ) : 'Please login Above.'}
+            </div>
         </div>
     );
 };

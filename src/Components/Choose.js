@@ -17,7 +17,6 @@ const Choose = (props) => {
         return (
             <Account>
                 <Login></Login>
-                <Status></Status>
             </Account>
         )
     }
